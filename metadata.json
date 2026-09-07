@@ -1,0 +1,6 @@
+{
+  "name": "온라인 상담 신청 서비스",
+  "description": "사용자가 제목과 요청 내용을 작성하여 간편하게 상담을 신청하고 관리할 수 있는 상담 서비스 플랫폼",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

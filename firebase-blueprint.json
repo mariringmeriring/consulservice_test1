@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "consultations": {
+      "title": "Consultation",
+      "description": "사용자가 접수한 온라인 상담 신청 정보",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "상담 제목" },
+        "content": { "type": "string", "description": "상담 요청 상세 내용" },
+        "clientName": { "type": "string", "description": "신청자 성함/닉네임" },
+        "contact": { "type": "string", "description": "답변받을 연락처 또는 이메일" },
+        "category": { "type": "string", "description": "상담 분야/카테고리" },
+        "status": { "type": "string", "description": "상담 처리 상태 (대기중, 상담중, 완료)" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "등록 시간" },
+        "reply": { "type": "string", "description": "상담사 답변 메모" }
+      },
+      "required": ["title", "content", "createdAt"]
+    },
+    "users": {
+      "title": "User",
+      "description": "회원가입 및 관리자 계정 정보",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string", "description": "사용자 아이디" },
+        "name": { "type": "string", "description": "이름 또는 별칭" },
+        "password": { "type": "string", "description": "비밀번호" },
+        "role": { "type": "string", "description": "사용자 역할 (admin, user)" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "가입 일시" }
+      },
+      "required": ["username", "password", "role"]
+    }
+  },
+  "firestore": {
+    "/consultations/{consultationId}": {
+      "entity": "consultations",
+      "security": {
+        "read": "true",
+        "write": "true"
+      }
+    },
+    "/users/{userId}": {
+      "entity": "users",
+      "security": {
+        "read": "true",
+        "write": "true"
+      }
+    }
+  }
+}
